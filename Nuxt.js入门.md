@@ -43,3 +43,43 @@ npm run dev
  
 ```
 
+#### 1.2 页面和路由
+
+##### 1.2.1 基本路由
+
+Nuxt.js依据`pages`目录结构自动生成vue-router模板的路由配置
+
+假设`pages`的目录结构如下
+
+```js
+├ pages
+   ├─index,vue                     
+   ├─user
+      ├─index.vue
+	  ├─one.vue
+```
+
+那么, Nuxt.js自动生成的路由配置如下:
+
+```js
+router:{
+    routes: [
+        {
+            name:'index',
+            path: '/',
+            component: 'path/index.vue'
+        },
+        {
+            name:'user',
+            path: '/user',
+            component: 'path/user/index.vue'
+        },
+        {
+            name:'user-one',
+            path: '/user/one',
+            component: 'path/user/one.vue'
+        }
+    ]
+}
+```
+
