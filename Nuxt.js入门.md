@@ -83,3 +83,32 @@ router:{
 }
 ```
 
+##### 1.2.2 页面跳转
+
+1. 不要写成a标签，因为是重新获取一个新页面，并不是SPA
+2. `<nuxt-link to="/pageA"></nuxt-link>`
+3. this.$route.push('/pageA')
+4. this.$route.push({name: AAA})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
