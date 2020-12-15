@@ -183,7 +183,7 @@ css: [
 
 // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 plugins: [
-{src: '~/plugins/ElementUI', ssr: true}
+{src: '~/plugins/ElementUI', ssr: true}  // ssr:true表示这个插件只在服务端起作用
 ],
 
 // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -199,7 +199,7 @@ modules: [
 
 // Build Configuration (https://go.nuxtjs.dev/config-build)
 build: {
-vendor: ['element-ui']
+vendor: ['element-ui']  // 防止elementui被多次打包
 }
 ```
 
