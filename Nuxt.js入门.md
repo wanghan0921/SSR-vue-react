@@ -151,11 +151,11 @@ export default {
 };
 ```
 
-**特殊布局组件**
+##### 1.3.2 特殊布局组件
 在layout文件夹下, 创建一个error.vue , 名字只能叫这个, 所有匹配不到的页面都会同步到这个页面
 
 
-##### 1.3.2 全局样式组件配置
+##### 1.3.3 全局样式组件配置
 1. 在asset下创建style文件夹, 里面创建index.css文件
 2. nuxt.config.js文件中, 配置
 ```js
@@ -165,6 +165,43 @@ export default {
   ],
 ```
 
+#### 1.4 ElementUI使用
+1. 下载 `npm i element-ui -S`
+2. 在plugins文件夹下面, 创建ElementUI.js文件
+```js
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+Vue.use(ElementUI)
+```
+3. 在nuxt.config.js中添加配置
+```js
+// Global CSS (https://go.nuxtjs.dev/config-css)
+css: [
+'~/assets/style/index.css',
+'element-ui/lib/theme-chalk/index.css'
+],
+
+// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+plugins: [
+{src: '~/plugins/ElementUI', ssr: true}
+],
+
+// Auto import components (https://go.nuxtjs.dev/config-components)
+components: true,
+
+// Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+buildModules: [
+],
+
+// Modules (https://go.nuxtjs.dev/config-modules)
+modules: [
+],
+
+// Build Configuration (https://go.nuxtjs.dev/config-build)
+build: {
+vendor: ['element-ui']
+}
+```
 
 
 
