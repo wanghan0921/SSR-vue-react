@@ -125,6 +125,46 @@ Nuxt.js使用validate方法进行路由参数校验,这个方法必须返回一�
 3. 在父组件中. 添加组件`<nuxt-child></nuxt-child>`, 用于展示匹配到的子视图
 
 
+#### 1.3 layouts & pages & components
+
+##### 1.3.1 创建layout
+
+1. 去layout文件夹下面新建一个新的layout组件, 例如`myLayout.vue`
+2. 给需要的用到新layout的组件添加layout属性, 并指定需要使用的layout, 例如layout: 'myLayout'
+```js
+export default {
+  layout: 'myLayout',
+  data() {
+    return {
+      list: [
+        {
+          name: "aaa",
+          id: 1
+        },
+        {
+          name: "bbb",
+          id: 2
+        }
+      ]
+    };
+  }
+};
+```
+
+**特殊布局组件**
+在layout文件夹下, 创建一个error.vue , 名字只能叫这个, 所有匹配不到的页面都会同步到这个页面
+
+
+##### 1.3.2 全局样式组件配置
+1. 在asset下创建style文件夹, 里面创建index.css文件
+2. nuxt.config.js文件中, 配置
+```js
+// Global CSS (https://go.nuxtjs.dev/config-css)
+  css: [
+    '~/assets/style/index.css'
+  ],
+```
+
 
 
 
