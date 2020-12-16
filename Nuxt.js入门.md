@@ -205,8 +205,70 @@ vendor: ['element-ui']  // 防止elementui被多次打包
 
 
 
+#### 1.5 异步数据获取
 
+**注意**
+1. 在nuxt中, 生命周期函数只有created以及beforeCreate这两个生命周期函数能后在服务端正常使用
+2. 在nuxt中发异步请求不能在created生命周期函数中去发, 因为他会在前端执行
 
+Nuxt.js扩展了Vue.js, 增加了一叫`asynData`的方法, 使得我们可以在设置组件的数据之前能异步获取或处理数据.
+`asynData`方法会在组件(**限于页面组件**)每次加载之前被调用.它可以在服务端或路由更新之前被调用. 所以需要注意这个函数不能使用`this`
+
+使用方法:
+`asynData(context, callback) {callback(null, data)}`
+`context.route.params.XXXX`获取参数
+`callback(new Error(), data)`渲染出错的页面
+注意: 这个方法在服务端执行和客户端执行的区别
+
+```js
+asyncData(context, callback) {
+    console.log(context)
+    setTimeout(()=>{
+      // callback有两个数据对象, 第一个数错误对象, 第二个是数据对象
+      callback(null, {
+        list: [
+          {
+            name: "aaa123",
+            id: 1
+          },
+          {
+            name: "bbb3123",
+            id: 2
+          }
+        ]
+      })
+    },1000)
+  },
+```
+
+```js
+asyncData(context, callback) {
+    return new Promise((resolve, reject)=> {
+      setTimeout(()=>{
+        resolve({
+          list: [
+            {
+              name: "aaa",
+              id: 1
+            },
+            {
+              name: "bbb3",
+              id: 2
+            }
+          ]
+        })
+      },1000)
+    })
+      .then(res => {
+        console.log(res)
+        callback(null, {list: res.data.list})
+      })
+      .catch(err => {
+        // callback(err)
+        context.error(err)
+      })
+  },
+```
 
 
 
