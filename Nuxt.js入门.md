@@ -270,7 +270,28 @@ asyncData(context, callback) {
   },
 ```
 
+#### 1.6 axios使用
 
+1. 安装`npm i axios -S`
+
+2. 使用
+```js
+import axios from 'axios'
+asynData(context, callback) {
+	axios.get('xxxxxxxxx').then(res => {
+		callback(null, {list: res.data})
+	})
+}
+```
+
+3. 为了防止重复打包, 在nuxt.config.js中配置
+```js
+module.export = {
+	build: {
+		vendor: ['axios']
+	}
+}
+```
 
 
 
