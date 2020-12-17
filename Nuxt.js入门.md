@@ -293,6 +293,35 @@ module.export = {
 }
 ```
 
+#### 1.7 Nuxt.js的SEO优化
++ 整体项目的优化, nuxt.config.js
+```js
+head: {
+    title: 'my-nuxt-demo',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+  },
+```
+
++ 单页面的SEO优化, 可以添加一个`head()`方法
+```js
+head() {
+    return {
+      title: 'my-nuxt-demo',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: '' }
+      ]
+    }
+  }
+```
 
 
 
