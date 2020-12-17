@@ -17,16 +17,26 @@ export default {
   data() {
     return {
       list: [
-        {
-          name: "aaa",
-          id: 1
-        },
-        {
-          name: "bbb",
-          id: 2
-        }
-      ]
+          {
+            name: "aaa123",
+            id: 1
+          },
+          {
+            name: "bbb3123",
+            id: 2
+          }
+        ]
     };
+  },
+  head() {
+    return {
+      title: '11111111111',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: '' }
+      ]
+    }
   }
 };
 </script>
