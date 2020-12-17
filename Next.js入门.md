@@ -16,3 +16,108 @@ Next.js带来了很多好的特性:
 + 对SEO友好
 + 提升在手机以及低能耗设备上的性能
 + 快速显示首页
+
+
+#### Next.js体验
+
+1. 创建一个Next.js的项目
+```js
+mkdir hello-next
+cd hello-next
+npm init -y
+npm i --save react react-dom next
+mkdir pages
+```
+
+2. 配置package.json中的scripts属性
+```js
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
+```
+but, 此时`npm run dev`会得到一个404页面
+
+3.创建一个pages/index.js文件
+```js
+const index = () => {
+    return (
+        <div>
+            Next.js入门啊哈哈哈哈哈
+        </div>
+    )
+}
+
+export default index
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
