@@ -60,36 +60,51 @@ export default index
 2.1.1 路由跳转
 
   1. Link组件
-  ```js
-  import Link from 'next/link';
+    ```js
+    import Link from 'next/link';
 
-  const index = () => {
-      return (
-          <div>
-              <p>Next.js入门啊哈哈哈哈哈</p>
-              {/* link组件
-                  注意: 
-                  1. Link组件内不能直接放字符串 , 可以用一个标签包裹起来
-                  2. Link内只能有一个子节点
-                  3. 不能直接给Link组件设置样式, 因为他是一个HOC(高阶组件), 给可以给它的子元素设置样式
-              */}
-              <Link href="/next-route/myindex">
-                  <span>myindex</span>
-              </Link>
-          </div>
-      )
-  }
+    const index = () => {
+        return (
+            <div>
+                <p>Next.js入门啊哈哈哈哈哈</p>
+                {/* link组件
+                    注意: 
+                    1. Link组件内不能直接放字符串 , 可以用一个标签包裹起来
+                    2. Link内只能有一个子节点
+                    3. 不能直接给Link组件设置样式, 因为他是一个HOC(高阶组件), 给可以给它的子元素设置样式
+                */}
+                <Link href="/next-route/myindex">
+                    <span>myindex</span>
+                </Link>
+            </div>
+        )
+    }
 
-  export default index
-  ```
+    export default index
+    ```
 
-  2. 组件`<Link>`可接收URL对象, 而且它还会自动格式化生成URL字符串
-  ```js
-  <Link href={{pathname: '/next-route/myindex', query: {id: 1}}}>
-      <span>myindex</span>
-  </Link>
-  ```
+  组件`<Link>`可接收URL对象, 而且它还会自动格式化生成URL字符串
+    ```js
+    <Link href={{pathname: '/next-route/myindex', query: {id: 1}}}>
+        <span>myindex</span>
+    </Link>
+    ```
+  
+  
+  2. 命名式路由
+  
+    ```js
+    import Router from 'next/router'
+    <div onClick={()=> {Router.push('/next-route/students')}}>student</div>
+    ```
+    
+    URL语法对象
+    ```js
+    <div onClick={()=> {Router.push({pathname:'/next-route/students', query: {id: 1}})}}>student</div>
+    ```
 
+    > 注意: 1. 如果没有匹配到的话, 默认会去找`_error.js`中定义的组件 
+    >       2. 路由跳转不会向服务器发送页面请求 
 
 
 
