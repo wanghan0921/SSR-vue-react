@@ -95,16 +95,17 @@ export default index
   
     ```js
     import Router from 'next/router'
+    
     <div onClick={()=> {Router.push('/next-route/students')}}>student</div>
     ```
     
-    URL语法对象
+  URL语法对象
     ```js
     <div onClick={()=> {Router.push({pathname:'/next-route/students', query: {id: 1}})}}>student</div>
     ```
 
-    > 注意: 1. 如果没有匹配到的话, 默认会去找`_error.js`中定义的组件 
-    >       2. 路由跳转不会向服务器发送页面请求 
+  > 注意: 1. 如果没有匹配到的话, 默认会去找`_error.js`中定义的组件 
+  >       2. 路由跳转不会向服务器发送页面请求 
 
 
 
